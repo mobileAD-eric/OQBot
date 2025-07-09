@@ -1,107 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>訂單查詢 BOT</title>
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        font-size: 6vw; /* 手機字體自適應 */
-        background: #ffffff;
-        height: 100%;
-      }
-      body {
-        display: flex;
-        flex-direction: column;
-      }
-      #chat {
-        flex: 1;
-        overflow-y: auto;
-        padding: 3vw;
-        display: flex;
-        flex-direction: column;
-      }
-      .bubble {
-        max-width: 95%;
-        margin: 1vw 0;
-        padding: 3vw;
-        border-radius: 3vw;
-        word-wrap: break-word;
-        line-height: 1.4;
-      }
-      .user {
-        background: #DCF8C6;
-        align-self: flex-end;
-      }
-      .bot {
-        background: #F1F0F0;
-        align-self: flex-start;
-      }
-      #inputArea {
-        display: flex;
-        padding: 2vw;
-        background: #fff;
-        border-top: 1px solid #ccc;
-      }
-      #customerName {
-        flex: 1;
-        font-size: 5vw;
-        padding: 3vw;
-        border: 1px solid #ccc;
-        border-radius: 2vw;
-      }
-      button {
-        font-size: 5vw;
-        padding: 3vw 4vw;
-        margin-left: 2vw;
-        border: none;
-        border-radius: 2vw;
-        background: #4CAF50;
-        color: white;
-      }
-      button:active {
-        background: #45A049;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="chat">
-      <div class="bubble bot">👋 您好，請輸入客戶名稱或經銷商名稱查詢訂單。</div>
-    </div>
-    <div id="inputArea">
-      <input type="text" id="customerName" placeholder="請輸入客戶名稱或經銷商名稱" onkeydown="if(event.key==='Enter'){sendMessage();}">
-      <button onclick="sendMessage()">送出</button>
-    </div>
-
-    <script>
-      function sendMessage() {
-        const input = document.getElementById('customerName');
-        const name = input.value.trim();
-        if (!name) return;
-
-        addBubble(name, 'user');
-        input.value = '';
-        addBubble('查詢中...', 'bot');
-
-        google.script.run.withSuccessHandler(function(response) {
-          const chat = document.getElementById('chat');
-          chat.removeChild(chat.lastChild);
-          addBubble(response, 'bot');
-        }).searchOrdersByCustomer(name);
-      }
-
-      function addBubble(text, type) {
-        const chat = document.getElementById('chat');
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble ' + type;
-        bubble.innerText = text;
-        chat.appendChild(bubble);
-        chat.scrollTop = chat.scrollHeight;
-      }
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>訂單查詢 BOT</title>
+  <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbwupOOfwMxZZm-Qmkw8Lcw_wE-5o_Cx3svWoPtqbhfgHb3O9uNic80hK29ImRwHWSYu/exec">
+</head>
+<body>
+  <p>正在跳轉到訂單查詢系統...</p>
+</body>
 </html>
